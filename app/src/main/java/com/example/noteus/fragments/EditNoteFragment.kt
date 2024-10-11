@@ -1,6 +1,7 @@
 package com.example.noteus.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
@@ -59,7 +60,7 @@ import com.example.noteus.viewmodel.NoteViewModel
 
             if(noteTitle.isNotEmpty()){
                 val note = Note(currentNote.id,noteTitle, noteDesc)
-                notesViewModel.addNote(note)
+                notesViewModel.updateNote(note)
                 view.findNavController().popBackStack(R.id.homeFragment, false)
             }else{
                 Toast.makeText(context, "Please enter a tittle for note", Toast.LENGTH_SHORT).show()
@@ -74,6 +75,7 @@ import com.example.noteus.viewmodel.NoteViewModel
                 setTitle("Delete Note")
                 setMessage("Do you want to delete this note?")
                 setPositiveButton("Delete"){_,_ ->
+                    Log.d("DeleteNote", "Deleting note with ID: ${currentNote.id}")
                     notesViewModel.deleteNote(currentNote)
                     Toast.makeText(context, "Note Deleted", Toast.LENGTH_SHORT).show()
                     view?.findNavController()?.popBackStack(R.id.homeFragment, false)

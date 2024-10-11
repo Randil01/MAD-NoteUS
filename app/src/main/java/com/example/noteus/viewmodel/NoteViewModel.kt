@@ -15,14 +15,14 @@ class NoteViewModel(app: Application, private val noteRepository: NoteRepository
         }
     fun deleteNote(note: Note) =
         viewModelScope.launch {
-            noteRepository.insertNote(note)
+            noteRepository.deleteNote(note)
         }
     fun updateNote(note: Note) =
         viewModelScope.launch {
-            noteRepository.insertNote(note)
+            noteRepository.updateNote(note)
         }
 
     fun getAllNotes() = noteRepository.getAllNotes()
-    fun searchNote(query: String?)=
+    fun searchNote(query: String?) =
         noteRepository.searchNote(query)
 }

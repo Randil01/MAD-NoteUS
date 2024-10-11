@@ -58,7 +58,7 @@
             android:clickable="true"
             android:backgroundTint="@color/pink"
             android:tintMode="@color/white"
-            android:src="@drawable/baseline_done_all_24"
+            android:src="@drawable/baseline_add_24"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:contentDescription="editFab" />
